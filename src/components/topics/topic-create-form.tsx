@@ -1,0 +1,37 @@
+import * as actions from "@/actions";
+import {
+  Button,
+  Input,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+  Textarea,
+} from "@heroui/react";
+
+export default function TopicCreateForm() {
+  return (
+    <Popover placement="left-start">
+      <PopoverTrigger>
+        <Button color="primary">Create a Topic</Button>
+      </PopoverTrigger>
+      <PopoverContent>
+        <form action={actions.createTopic}>
+          <div className="flex flex-col gap-4 p-4 w-80">
+            <h3 className="text-lg">Create a Topic</h3>
+            <Input
+              label="Name"
+              labelPlacement="outside"
+              placeholder="e.g. javascript"
+            />
+            <Textarea
+              label="Description"
+              labelPlacement="outside"
+              placeholder="e.g. introducing javascript ES6+..."
+            />
+            <Button type="submit">Submit</Button>
+          </div>
+        </form>
+      </PopoverContent>
+    </Popover>
+  );
+}
